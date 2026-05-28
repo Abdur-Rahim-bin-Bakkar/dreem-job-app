@@ -131,7 +131,7 @@ const Navbar = () => {
                     href="/login"
                     className="text-violet-300 font-medium"
                   >
-                    Sign In
+                    Sign-In
                   </Link>
 
                   <Button className="bg-white text-black rounded-xl">
