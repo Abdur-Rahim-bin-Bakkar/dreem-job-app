@@ -4,6 +4,8 @@ import Link from "next/link";
 import { useState } from "react";
 import { Button } from "@heroui/react";
 import { HiOutlineMenuAlt3, HiX } from "react-icons/hi";
+import logo from '@/images/logo.png'
+import Image from "next/image";
 
 const Navbar = () => {
 
@@ -40,16 +42,12 @@ const Navbar = () => {
             href="/"
             className="flex items-center gap-3 shrink-0"
           >
-            <div className="w-11 h-11 rounded-2xl bg-gradient-to-br from-violet-600 via-fuchsia-500 to-blue-500 flex items-center justify-center shadow-[0_0_25px_rgba(139,92,246,0.45)]">
 
-              <span className="text-white font-black text-lg">
-                H
-              </span>
-            </div>
+            <Image src={logo} alt='logo' width={500} height={400} className="w-25 md:w-35" />
 
-            <h2 className="text-white text-2xl font-black tracking-tight">
+            {/* <h2 className="text-white text-2xl font-black tracking-tight">
               HireLoop
-            </h2>
+            </h2> */}
           </Link>
 
           {/* Desktop Right Section */}
