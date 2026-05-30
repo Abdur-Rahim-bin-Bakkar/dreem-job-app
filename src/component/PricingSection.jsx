@@ -4,8 +4,8 @@ import PricingCard from "./PricingCard";
 
 const PricingSection = () => {
   return (
-    <section className="bg-black py-24 px-4 text-center">
-      <div className="max-w-6xl mx-auto">
+    <section className="bg-black py-24  text-center  w-full px-5">
+      <div className=" ">
 
         {/* Heading */}
         <p className="text-violet-400 text-xs uppercase tracking-[0.3em]">
@@ -29,7 +29,7 @@ const PricingSection = () => {
         </div>
 
         {/* Cards */}
-        <div className="grid md:grid-cols-3 gap-6 mt-12">
+        <div className="grid md:grid-cols-3 gap-6 mt-12 w-full ">
 
           <PricingCard
             title="Starter"

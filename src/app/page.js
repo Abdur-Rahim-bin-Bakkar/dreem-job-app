@@ -5,6 +5,7 @@ import Features from "@/component/Features";
 // import Features from "@/component/Features";
 import NicerSection from "@/component/NicerSection";
 import PricingSection from "@/component/PricingSection";
+import Role from "@/component/Role";
 import Image from "next/image";
 
 export default function Home() {
@@ -17,6 +18,7 @@ export default function Home() {
       <FeaturedJobs/>
       <Features/>
       <PricingSection/>
+      <Role/>
     </div>
   );
 }

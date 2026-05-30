@@ -20,31 +20,10 @@ const Footer = () => {
 
         <div className="relative max-w-7xl mx-auto px-6 lg:px-10 pt-20 pb-12">
           {/* CTA Section */}
-          <div className="text-center mb-20">
-            <h2 className="text-3xl md:text-5xl font-bold leading-tight">
-              Your next role is
-              <br />
-              already looking for you
-            </h2>
-
-            <p className="text-gray-400 mt-5 max-w-2xl mx-auto text-sm md:text-base">
-              Join thousands of developers discovering better remote jobs,
-              faster applications, and top companies.
-            </p>
-
-            <div className="flex items-center justify-center gap-4 mt-8 flex-wrap">
-              <button className="bg-white text-black px-6 py-3 rounded-full font-semibold hover:scale-105 duration-300">
-                Get Started
-              </button>
-
-              <button className="border border-white/20 px-6 py-3 rounded-full hover:bg-white/10 duration-300">
-                Browse Jobs
-              </button>
-            </div>
-          </div>
+         
 
           {/* Footer Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 border-t border-white/10 pt-14">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 ">
             {/* Logo & About */}
             <div className="lg:col-span-2">
               <div className="flex items-center gap-2">
