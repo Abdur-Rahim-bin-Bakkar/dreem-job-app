@@ -1,0 +1,155 @@
+"use client";
+
+import { Button, Input } from "@heroui/react";
+import Link from "next/link";
+
+import { FaGithub, FaGoogle, FaUser } from "react-icons/fa";
+import { MdEmail } from "react-icons/md";
+import { RiLockPasswordFill } from "react-icons/ri";
+
+const RegisterForm = () => {
+    const handleRegister = async (e) => {
+        e.preventDefault();
+
+        const form = e.target;
+
+        const name = form.name.value;
+        const email = form.email.value;
+        const password = form.password.value;
+
+        console.log({ name, email, password });
+    };
+
+    const iconClass = "text-gray-400 text-lg";
+
+    return (
+        <div className="w-full max-w-md mt-28 bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-8 shadow-2xl mb-10">
+
+            {/* Logo */}
+            <div className="flex justify-center mb-6">
+                <h1 className="text-3xl font-black">
+                    <span className="text-white">hire</span>
+                    <span className="text-purple-500">loop</span>
+                </h1>
+            </div>
+
+            {/* Heading */}
+            <div className="text-center mb-8">
+                <h2 className="text-4xl font-bold mb-2 text-white">
+                    Create Account
+                </h2>
+                <p className="text-gray-400 text-sm">
+                    Start your journey and find your dream job
+                </p>
+            </div>
+
+            {/* Form */}
+            <form onSubmit={handleRegister} className="space-y-5">
+
+                {/* Name */}
+                <Input
+                    name="name"
+                    type="text"
+                    label="Full Name"
+                    placeholder="Abdur Rahim"
+                    variant="bordered"
+                    fullWidth
+                    startContent={<FaUser className={iconClass} />}
+                    classNames={{
+                        inputWrapper:
+                            "bg-white/5 border border-white/10 hover:border-purple-500 h-14 rounded-xl",
+                        input: "text-white",
+                        label: "text-gray-400",
+                    }}
+                />
+
+                {/* Email */}
+                <Input
+                    name="email"
+                    type="email"
+                    label="Email"
+                    placeholder="rahim@gmail.com"
+                    variant="bordered"
+                    fullWidth
+                    startContent={<MdEmail className="text-gray-400 text-xl" />}
+                    classNames={{
+                        inputWrapper:
+                            "bg-white/5 border border-white/10 hover:border-purple-500 h-14 rounded-xl",
+                        input: "text-white",
+                        label: "text-gray-400",
+                    }}
+                />
+
+                {/* Password */}
+                <Input
+                    name="password"
+                    type="password"
+                    label="Password"
+                    placeholder="********"
+                    variant="bordered"
+                    fullWidth
+                    startContent={
+                        <RiLockPasswordFill className="text-gray-400 text-xl" />
+                    }
+                    classNames={{
+                        inputWrapper:
+                            "bg-white/5 border border-white/10 hover:border-purple-500 h-14 rounded-xl",
+                        input: "text-white",
+                        label: "text-gray-400",
+                    }}
+                />
+
+                {/* Submit Button */}
+                <Button
+                    type="submit"
+                    className="w-full bg-purple-600 hover:bg-purple-700 text-white font-semibold h-12 rounded-xl transition-all duration-300"
+                >
+                    Create Account
+                </Button>
+            </form>
+            <p className="text-center text-sm text-gray-400 mt-6">
+                Already have an account?{" "}
+                <Link
+                    href="/login"
+                    className="text-purple-400 hover:text-purple-300 transition-colors"
+                >
+                    Sign In
+                </Link>
+            </p>
+
+            {/* Divider */}
+            <div className="flex items-center gap-3 my-6">
+                <div className="flex-1 h-[1px] bg-white/10" />
+                <p className="text-xs text-gray-500 whitespace-nowrap">
+                    OR CONTINUE WITH
+                </p>
+                <div className="flex-1 h-[1px] bg-white/10" />
+            </div>
+
+            {/* Social Login */}
+
+            <div className="space-y-4">
+
+                {/* Google */}
+                <Button
+                    className="w-full bg-white/10 border border-white/10 text-white h-12 rounded-xl hover:bg-white/15 transition-all duration-300 flex items-center justify-center gap-2"
+                >
+                    <FaGoogle className="text-red-400 text-lg" />
+                    Continue with Google
+                </Button>
+
+                {/* Github */}
+                <Button
+                    className="w-full bg-white/10 border border-white/10 text-white h-12 rounded-xl hover:bg-white/15 transition-all duration-300 flex items-center justify-center gap-2"
+                >
+                    <FaGithub className="text-white text-lg" />
+                    Continue with Github
+                </Button>
+            </div>
+
+            {/* Footer */}
+        </div>
+    );
+};
+
+export default RegisterForm;
