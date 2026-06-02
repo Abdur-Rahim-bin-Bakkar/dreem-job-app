@@ -9,7 +9,7 @@
     "lint": "eslint"
   },
   "dependencies": {
-    "@better-auth/mongo-adapter": "^1.6.13",
+    "@better-auth/mongo-adapter": "^1.6.11",
     "@heroui/react": "^3.1.0",
     "@heroui/styles": "^3.1.0",
     "better-auth": "^1.6.11",
@@ -25,8 +25,5 @@
     "eslint": "^9",
     "eslint-config-next": "16.2.6",
     "tailwindcss": "^4"
-  },
-  "overrides": {
-    "kysely": "0.29.0"
   }
 }
