@@ -1,8 +1,6 @@
-// components/home/Banner.jsx
-
 "use client";
 
-import { Input, Button } from "@heroui/react";
+import { Button } from "@heroui/react";
 
 import {
   HiOutlineSearch,
@@ -37,12 +35,9 @@ const Banner = () => {
         {/* Badge */}
         <div className="flex justify-center">
           <div className="inline-flex items-center gap-2 border border-white/10 bg-white/5 backdrop-blur-xl rounded-full px-6 py-2 text-sm text-gray-300 shadow-[0_0_30px_rgba(139,92,246,0.2)]">
-
             <span className="text-orange-400">🔥</span>
 
-            <span>
-              50,000+ NEW JOBS THIS MONTH
-            </span>
+            <span>50,000+ NEW JOBS THIS MONTH</span>
           </div>
         </div>
 
@@ -50,7 +45,6 @@ const Banner = () => {
         <div className="max-w-4xl mx-auto text-center mt-10">
 
           <h1 className="text-5xl md:text-7xl lg:text-[90px] font-black leading-[1.1] tracking-tight">
-
             Find Your Dream
 
             <span className="block mt-2 bg-gradient-to-r from-violet-400 via-fuchsia-400 to-blue-400 bg-clip-text text-transparent">
@@ -72,36 +66,30 @@ const Banner = () => {
 
             {/* Search Input */}
             <div className="flex-1">
-              <Input
-                size="lg"
-                startContent={
-                  <HiOutlineSearch className="text-gray-500 text-2xl" />
-                }
-                placeholder="Job title, skill or company"
-                classNames={{
-                  inputWrapper:
-                    "bg-transparent shadow-none border-none h-16",
-                  input:
-                    "text-white placeholder:text-gray-500 text-base",
-                }}
-              />
+              <div className="flex items-center gap-3 h-16 px-5 rounded-2xl bg-transparent border border-white/10">
+
+                <HiOutlineSearch className="text-gray-500 text-2xl" />
+
+                <input
+                  type="text"
+                  placeholder="Job title, skill or company"
+                  className="w-full bg-transparent outline-none text-white placeholder:text-gray-500 text-base"
+                />
+              </div>
             </div>
 
             {/* Location Input */}
-            <div className="flex-1 border-t lg:border-t-0 lg:border-l border-white/10">
-              <Input
-                size="lg"
-                startContent={
-                  <HiOutlineLocationMarker className="text-gray-500 text-2xl" />
-                }
-                placeholder="Location or Remote"
-                classNames={{
-                  inputWrapper:
-                    "bg-transparent shadow-none border-none h-16",
-                  input:
-                    "text-white placeholder:text-gray-500 text-base",
-                }}
-              />
+            <div className="flex-1">
+              <div className="flex items-center gap-3 h-16 px-5 rounded-2xl bg-transparent border border-white/10">
+
+                <HiOutlineLocationMarker className="text-gray-500 text-2xl" />
+
+                <input
+                  type="text"
+                  placeholder="Location or Remote"
+                  className="w-full bg-transparent outline-none text-white placeholder:text-gray-500 text-base"
+                />
+              </div>
             </div>
 
             {/* Button */}
