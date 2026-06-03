@@ -6,8 +6,20 @@ import { Button } from "@heroui/react";
 import { HiOutlineMenuAlt3, HiX } from "react-icons/hi";
 import logo from '@/images/logo.png'
 import Image from "next/image";
+import { authClient } from "@/lib/auth-client";
 
 const Navbar = () => {
+
+  const {
+    data: session,
+    isPending, //loading state
+    error, //error object
+    refetch //refetch the session
+  } = authClient.useSession()
+  console.log(session)
+  const handleSignout = async () => {
+    await authClient.signOut();
+  }
 
   const [isOpen, setIsOpen] = useState(false);
 
@@ -73,12 +85,19 @@ const Navbar = () => {
             {/* Right Buttons */}
             <div className="flex items-center gap-4">
 
-              <Link
-                href="/login"
-                className="text-violet-300 hover:text-white transition duration-300 font-medium whitespace-nowrap"
-              >
-                Sign In
-              </Link>
+              {
+                session ? <>
+                  <p>{session?.user?.name}</p>
+                  <Button onClick={handleSignout}>Sign Out</Button>
+
+                </> :
+                  <Link
+                    href="/login"
+                    className="text-violet-300 font-medium"
+                  >
+                    Sign-In
+                  </Link>
+              }
 
               <Button
                 className="bg-white text-black hover:scale-105 transition duration-300 font-semibold rounded-2xl px-7 h-12"
@@ -124,13 +143,17 @@ const Navbar = () => {
                 <div className="w-full h-px bg-gradient-to-r from-violet-500/20 via-fuchsia-400/60 to-blue-500/20"></div>
 
                 <div className="flex flex-col gap-3 pt-2">
+                  {
+                    session ? <></> :
+                      <Link
+                        href="/login"
+                        className="text-violet-300 font-medium"
+                      >
+                        Sign-In
+                      </Link>
+                  }
 
-                  <Link
-                    href="/login"
-                    className="text-violet-300 font-medium"
-                  >
-                    Sign-In
-                  </Link>
+
 
                   <Button className="bg-white text-black rounded-xl">
                     Get Started
