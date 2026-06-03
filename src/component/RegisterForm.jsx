@@ -3,6 +3,7 @@
 import { authClient } from "@/lib/auth-client";
 import { Button } from "@heroui/react";
 import Link from "next/link";
+import { redirect } from "next/navigation";
 
 import { FaGithub, FaGoogle, FaUser } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
@@ -33,6 +34,9 @@ const RegisterForm = () => {
 
     console.log(data, "data");
     console.log(error, "error");
+    if(data){
+      redirect('/login')
+    }
   };
 
   return (
