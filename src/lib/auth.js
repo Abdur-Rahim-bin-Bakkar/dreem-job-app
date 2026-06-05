@@ -14,4 +14,11 @@ export const auth = betterAuth({
         enabled: true,
         autoSignIn:false
     },
+    user:{
+        additionalFields:{
+            role:{
+                default:'seeker'
+            }
+        }
+    }
 });

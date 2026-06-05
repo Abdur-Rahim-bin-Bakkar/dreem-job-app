@@ -4,6 +4,7 @@ import { authClient } from "@/lib/auth-client";
 import { Button } from "@heroui/react";
 import Link from "next/link";
 import { redirect } from "next/navigation";
+import { Description, Label, Radio, RadioGroup } from "@heroui/react";
 
 import { FaGithub, FaGoogle, FaUser } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
@@ -19,17 +20,20 @@ const RegisterForm = () => {
     const name = form.name.value;
     const email = form.email.value;
     const password = form.password.value;
+    const role = form.role.value;
 
     console.log({
       name,
       email,
       password,
+      role
     });
 
     const { data, error } = await authClient.signUp.email({
       name,
       email,
       password,
+      role
     });
 
     console.log(data, "data");
@@ -125,6 +129,30 @@ const RegisterForm = () => {
               className="w-full bg-transparent outline-none text-white placeholder:text-gray-500"
             />
           </div>
+        </div>
+        <div className="flex flex-col gap-4">
+          <Label>Subscription plan</Label>
+          <RadioGroup defaultValue="seeker" name="role" orientation="horizontal">
+            <Radio value="seeker">
+              <Radio.Control>
+                <Radio.Indicator />
+              </Radio.Control>
+              <Radio.Content>
+                <Label>Seeker</Label>
+                
+              </Radio.Content>
+            </Radio>
+      
+            <Radio value="recruiter">
+              <Radio.Control>
+                <Radio.Indicator />
+              </Radio.Control>
+              <Radio.Content>
+                <Label>Recruiter</Label>
+                
+              </Radio.Content>
+            </Radio>
+          </RadioGroup>
         </div>
 
         {/* Submit Button */}
