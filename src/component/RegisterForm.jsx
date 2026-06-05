@@ -131,7 +131,7 @@ const RegisterForm = () => {
           </div>
         </div>
         <div className="flex flex-col gap-4">
-          <Label>Subscription plan</Label>
+          <Label>What you want to do</Label>
           <RadioGroup defaultValue="seeker" name="role" orientation="horizontal">
             <Radio value="seeker">
               <Radio.Control>
