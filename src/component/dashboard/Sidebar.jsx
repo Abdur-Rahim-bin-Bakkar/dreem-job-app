@@ -56,9 +56,10 @@ const Sidebar = () => {
         {/* Mobile Top Button (only < md) */}
         <button
           onClick={() => setOpen(true)}
-          className="md:hidden fixed top-4 left-4 z-50 bg-white text-black p-2 rounded-md"
+          className="md:hidden fixed top-4 left-4 z-50 bg-white text-black p-2 rounded-md mt-10 flex items-center font-bold gap-2"
         >
           <FaBars />
+          Menue
         </button>
 
         {/* Overlay (only mobile) */}
