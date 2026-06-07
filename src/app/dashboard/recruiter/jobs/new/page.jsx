@@ -36,6 +36,26 @@ export default function PostJobPage() {
     const data = Object.fromEntries(formData.entries());
 
     console.log("FORM DATA:", data);
+
+    try {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_SERVER}/jobspost`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+
+      const result = await response.json();
+
+      console.log("SUCCESS:", result);
+
+      if (result.insertedId) {
+        alert("Job posted successfully");
+      }
+    } catch (error) {
+      console.log(error);
+    }
   };
   // Dark styles styled to match your image_988c20.png reference layout
   const textInputClass = "w-full text-white bg-[#1c1c1e] border border-zinc-800 hover:bg-[#242426] focus:border-zinc-600 rounded-lg h-12 px-3 text-sm placeholder:text-zinc-600 outline-none transition-all";
