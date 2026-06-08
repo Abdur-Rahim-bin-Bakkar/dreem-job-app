@@ -5,8 +5,9 @@ import { Table, Chip, Button, Tooltip } from "@heroui/react";
 import { Eye, Edit2, Trash2 } from "lucide-react"; 
 
 const RecruiterJobs = async () => {
-    const companyId = 'company_123'; 
-    const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER}/jobs`) 
+    
+
+    const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER}/jobs?status=active&companyId=company_123`) 
     const jobs = await res.json()
     
 
