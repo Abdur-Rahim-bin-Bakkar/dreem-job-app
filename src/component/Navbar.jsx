@@ -26,6 +26,11 @@ const Navbar = () => {
 
   const navLinks = [
     {
+      name:'Dashboard',
+      href:'dashboard/recruiter'
+    }
+    ,
+    {
       name: "Browse Jobs",
       href: "/jobs",
     },

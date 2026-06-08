@@ -9,8 +9,10 @@ import {
   FaClipboardList,
   FaCog,
   FaBars,
-  FaTimes
+  FaTimes,
+
 } from "react-icons/fa";
+import { IoIosAddCircle } from "react-icons/io";
 
 import { MdDashboard } from "react-icons/md";
 
@@ -18,8 +20,9 @@ const Sidebar = () => {
   const [open, setOpen] = useState(false);
   const menus = [
     { name: "Dashboard", icon: MdDashboard, path: "/dashboard/recruiter" },
-    { name: "My Company", icon: FaBuilding, path: "/company" },
-    { name: "Manage Jobs", icon: FaBriefcase, path: "/jobs" },
+    { name: "My Company", icon: FaBuilding, path: "/dashboard/recruiter/company" },
+    { name: "Manage Jobs", icon: FaBriefcase, path: "/dashboard/recruiter/jobs" },
+    { name: "ADD Jobs", icon: IoIosAddCircle, path: "/dashboard/recruiter/jobs/new" },
     { name: "Applications", icon: FaClipboardList, path: "/applications" },
     { name: "Settings", icon: FaCog, path: "/settings" },
   ];
