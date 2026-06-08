@@ -17,7 +17,7 @@ import { MdDashboard } from "react-icons/md";
 const Sidebar = () => {
   const [open, setOpen] = useState(false);
   const menus = [
-    { name: "Dashboard", icon: MdDashboard, path: "/dashboard" },
+    { name: "Dashboard", icon: MdDashboard, path: "/dashboard/recruiter" },
     { name: "My Company", icon: FaBuilding, path: "/company" },
     { name: "Manage Jobs", icon: FaBriefcase, path: "/jobs" },
     { name: "Applications", icon: FaClipboardList, path: "/applications" },

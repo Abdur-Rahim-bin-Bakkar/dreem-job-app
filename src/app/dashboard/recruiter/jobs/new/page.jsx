@@ -36,6 +36,13 @@ export default function PostJobPage() {
     const data = Object.fromEntries(formData.entries());
 
     console.log("FORM DATA:", data);
+    const job = {
+      ...data,
+      isRemote,
+      status: 'active',
+      isPubliclyVisible: true,
+      companyId: mockCompany?.id
+    }
 
     try {
       const response = await fetch(`${process.env.NEXT_PUBLIC_SERVER}/jobspost`, {
@@ -43,7 +50,7 @@ export default function PostJobPage() {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(data),
+        body: JSON.stringify(job),
       });
 
       const result = await response.json();
