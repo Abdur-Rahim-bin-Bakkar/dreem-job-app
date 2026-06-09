@@ -58,7 +58,9 @@ export default function PostJobPage() {
       console.log("SUCCESS:", result);
 
       if (result.insertedId) {
-        alert("Job posted successfully");
+        // alert("Job posted successfully");
+        // toast.success('successfully added the job')
+        redirect('/dashboard/recruiter/jobs')
       }
     } catch (error) {
       console.log(error);

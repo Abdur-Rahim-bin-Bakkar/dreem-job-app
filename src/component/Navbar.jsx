@@ -27,7 +27,7 @@ const Navbar = () => {
   const navLinks = [
     {
       name:'Dashboard',
-      href:'dashboard/recruiter'
+      href:'/dashboard/recruiter'
     }
     ,
     {
