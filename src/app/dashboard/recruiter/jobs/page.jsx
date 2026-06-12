@@ -3,13 +3,18 @@ import React from 'react';
 import { Table, Chip, Button, Tooltip } from "@heroui/react";
 // Assuming Gravity Icons maps to standard lucide equivalents; adjust paths if using a custom package
 import { Eye, Edit2, Trash2 } from "lucide-react"; 
-import { getCompanyInfo } from '@/lib/api/get';
+import { getCompanyInfo, getJobs } from '@/lib/api/get';
+import { getServerSession } from '@/lib/session/server';
 
 const RecruiterJobs = async () => {
-    const companyData = await getCompanyInfo()
+    const session = await getServerSession()
+    // console.log(session)
+    const companyData = await getCompanyInfo(session?.user?.id)
+    // console.log(companyData?._id,'this is company data form recruiter jobs page')
 
-    const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER}/jobs?status=active&companyId=company_123`) 
-    const jobs = await res.json()
+    // const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER}/jobs?status=active&companyId=company_123`) 
+    const jobs = await getJobs(companyData?._id)
+    // console.log(jobs, 'this is jobs')
     
 
     // Helper to determine status chip coloring
