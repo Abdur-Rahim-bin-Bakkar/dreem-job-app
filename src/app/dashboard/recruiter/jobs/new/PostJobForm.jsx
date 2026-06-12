@@ -27,7 +27,7 @@ export default function PostJobForm({companyData}) {
   // });
   console.log(companyData?.companyName, 'htis form new')
   console.log(companyData?.logo, 'htis form new')
-  console.log(companyData, 'htis form new')
+  console.log(companyData?.companyName, 'htis form new')
 
   const [isRemote, setIsRemote] = useState(false);
   const [errors, setErrors] = useState({});
@@ -45,7 +45,8 @@ export default function PostJobForm({companyData}) {
       status: 'active',
       isPubliclyVisible: true,
       companyId: companyData?._id,
-      logo:companyData?.logo
+      logo:companyData?.logo,
+      companyName:companyData.companyName
     }
 
     try {

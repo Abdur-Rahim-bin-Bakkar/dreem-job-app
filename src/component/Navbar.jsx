@@ -32,7 +32,7 @@ const Navbar = () => {
     ,
     {
       name: "Browse Jobs",
-      href: "/jobs",
+      href: "/alljobs",
     },
     {
       name: "Companies",
