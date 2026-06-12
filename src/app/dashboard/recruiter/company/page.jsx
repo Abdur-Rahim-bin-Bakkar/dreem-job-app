@@ -2,17 +2,13 @@ import React from 'react';
 import CompanyForm from './CompanyForm';
 import { headers } from 'next/headers';
 import { auth } from '@/lib/auth';
+import { getCompanyInfo } from '@/lib/api/get';
+import { getServerSession } from '@/lib/session/server';
 
 const CompanyPage = async () => {
-    const session = await auth.api.getSession({
-        headers: await headers(),
-    });
-    const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER}/my/company?recruiterId=${session?.user?.id}`);
-    const companyData = await res.json()
-   console.log(companyData, 'this is company data', session?.user?.id, 'thsi is session')
-    // const text = await res.text();
+    const session = await getServerSession();
+    const companyData = await getCompanyInfo(session?.user?.id)
 
-    // console.log(text, "text");
     return (
         <div>
             <CompanyForm companyData={companyData} />

@@ -3,9 +3,10 @@ import React from 'react';
 import { Table, Chip, Button, Tooltip } from "@heroui/react";
 // Assuming Gravity Icons maps to standard lucide equivalents; adjust paths if using a custom package
 import { Eye, Edit2, Trash2 } from "lucide-react"; 
+import { getCompanyInfo } from '@/lib/api/get';
 
 const RecruiterJobs = async () => {
-    
+    const companyData = await getCompanyInfo()
 
     const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER}/jobs?status=active&companyId=company_123`) 
     const jobs = await res.json()
