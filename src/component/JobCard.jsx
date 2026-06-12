@@ -7,7 +7,7 @@ import {
 
 export default function JobCard({ job }) {
     return (
-        <article className="group bg-[#080808] border border-violet-900/50 rounded-3xl p-6 transition-all duration-300 hover:border-violet-600 hover:-translate-y-1 shadow">
+        <article className="group bg-[#3a393970] border border-violet-900/50 rounded-3xl p-6 transition-all duration-300 hover:border-violet-600 hover:-translate-y-1 shadow">
 
             {/* Company */}
             <div className="flex items-center gap-3 mb-6">

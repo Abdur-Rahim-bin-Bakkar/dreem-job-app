@@ -13,8 +13,32 @@ export const getJobs = async (companyId) => {
 }
 
 // get all jobs:
-export const getAllJobs = async ()=>{
-    const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER}/all/jobs`)
-    const allJobs = await res.json()
-    return allJobs;
-}
+// export const getAllJobs = async ()=>{
+//     const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER}/all/jobs`)
+//     const allJobs = await res.json()
+//     return allJobs;
+// }
+export const getAllJobs = async (searchParams = {}) => {
+  const params = new URLSearchParams();
+
+  if (searchParams.search)
+    params.append("search", searchParams.search);
+
+  if (searchParams.category)
+    params.append("category", searchParams.category);
+
+  if (searchParams.type)
+    params.append("type", searchParams.type);
+
+  if (searchParams.remote)
+    params.append("remote", searchParams.remote);
+
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_SERVER}/all/jobs?${params.toString()}`,
+    {
+      cache: "no-store",
+    }
+  );
+
+  return await res.json();
+};
