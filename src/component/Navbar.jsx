@@ -17,7 +17,7 @@ const Navbar = () => {
     error, //error object
     refetch //refetch the session
   } = authClient.useSession()
-  console.log(session)
+  // console.log(session)
   const handleSignout = async () => {
     await authClient.signOut();
   }
