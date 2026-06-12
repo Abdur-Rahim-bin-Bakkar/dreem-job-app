@@ -19,7 +19,7 @@ import {
 } from "react-icons/fa6";
 import { authClient } from "@/lib/auth-client";
 
-export default function CompanyForm({companyData}) {
+export default function CompanyForm({ companyData }) {
     const {
         data: session,
         isPending, //loading state
@@ -149,7 +149,7 @@ export default function CompanyForm({companyData}) {
             </div>
 
             {/* NO COMPANY */}
-            {!company && !editing && (
+            {!company?.companyName && !editing && (
                 <div className="bg-[#0d0d0d] border border-zinc-800 rounded-3xl p-10">
                     <div className="flex flex-col items-center text-center">
                         <FaBuilding
@@ -176,7 +176,7 @@ export default function CompanyForm({companyData}) {
             )}
 
             {/* FORM */}
-            {(!company || editing) && (
+            {(!company?.companyName || editing) && (
                 <div className="bg-[#0d0d0d] border border-zinc-800 rounded-3xl p-8">
                     <Form onSubmit={handleSubmit} className="space-y-8">
                         <Fieldset className="space-y-6 w-full">
@@ -291,7 +291,7 @@ export default function CompanyForm({companyData}) {
             )}
 
             {/* DETAILS */}
-            {company && !editing && (
+            {company?.companyName && !editing && (
                 <div className="bg-[#0d0d0d] border border-zinc-800 rounded-3xl p-8">
                     <div className="flex justify-between">
                         <div className="flex gap-5">
