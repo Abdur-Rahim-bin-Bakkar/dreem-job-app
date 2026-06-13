@@ -1,12 +1,14 @@
+import { jobDetails } from '@/lib/api/get';
 import { getServerSession } from '@/lib/session/server';
 import Link from 'next/link';
 import { redirect } from 'next/navigation';
 import React from 'react';
 import { FaUserTie, FaBriefcase, FaArrowRight } from "react-icons/fa";
+import JobApplicationForm from './ApplicatioinForm';
 const ApplyPage = async ({ params }) => {
     const { id } = await params;
     const session = await getServerSession();
-    console.log(session?.user)
+    // console.log(session?.user)
 
     if (!session) {
         redirect(`/login?redirect=/alljobs/${id}/apply`)
@@ -74,9 +76,13 @@ const ApplyPage = async ({ params }) => {
             </div>
         )
     }
+
+    const job = await jobDetails(id)
+    // console.log(job)
     return (
         <div className='mt-20'>
             <h1>this is apply page</h1>
+            <JobApplicationForm  user={session?.user} job={job}/>
         </div>
     );
 };
