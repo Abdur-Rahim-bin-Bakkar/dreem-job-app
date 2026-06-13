@@ -1,14 +1,21 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
+// import { redirect } from "next/navigation";
 import {
   FaBriefcase,
   FaMoneyBillWave,
   FaCalendarAlt,
 } from "react-icons/fa";
 
-export default function JobDetails({ jobDetailsData }) {
-  console.log(jobDetailsData?.logo)
+export default function JobDetails({ jobDetailsData, session, id }) {
+  // console.log(jobDetailsData?.logo)
+  const router = useRouter()
+
+
+
   if (!jobDetailsData) {
     return (
       <div className="text-center text-white mt-20">
@@ -118,10 +125,13 @@ export default function JobDetails({ jobDetailsData }) {
           {/* Apply Box */}
           <div className="bg-zinc-900 border border-zinc-800 rounded-2xl p-6">
             <h2 className="text-lg font-semibold mb-3">Apply Now</h2>
+            <Link href={`/alljobs/${id}/apply`}>
 
-            <button className="w-full bg-blue-600 hover:bg-blue-700 transition text-white py-2 rounded-xl">
-              Apply Now
-            </button>
+
+              <button className="w-full bg-blue-600 hover:bg-blue-700 transition text-white py-2 rounded-xl">
+                Apply Now
+              </button>
+            </Link>
 
             <p className="text-xs text-zinc-400 mt-3">
               Deadline: {jobDetailsData.deadline}

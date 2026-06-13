@@ -3,7 +3,7 @@
 import { authClient } from "@/lib/auth-client";
 import { Button } from "@heroui/react";
 import Link from "next/link";
-import { redirect } from "next/navigation";
+import { redirect, useSearchParams } from "next/navigation";
 import { Description, Label, Radio, RadioGroup } from "@heroui/react";
 
 import { FaGithub, FaGoogle, FaUser } from "react-icons/fa";
@@ -11,6 +11,9 @@ import { MdEmail } from "react-icons/md";
 import { RiLockPasswordFill } from "react-icons/ri";
 
 const RegisterForm = () => {
+  const params = useSearchParams()
+  const redirectTo = params.get('redirect') || '/'
+  console.log(redirectTo)
 
   const handleRegister = async (e) => {
     e.preventDefault();
@@ -38,8 +41,8 @@ const RegisterForm = () => {
 
     console.log(data, "data");
     console.log(error, "error");
-    if(data){
-      redirect('/login')
+    if (data) {
+      redirect(`/login?redirect=${redirectTo}`)
     }
   };
 
@@ -139,17 +142,17 @@ const RegisterForm = () => {
               </Radio.Control>
               <Radio.Content>
                 <Label>Seeker</Label>
-                
+
               </Radio.Content>
             </Radio>
-      
+
             <Radio value="recruiter">
               <Radio.Control>
                 <Radio.Indicator />
               </Radio.Control>
               <Radio.Content>
                 <Label>Recruiter</Label>
-                
+
               </Radio.Content>
             </Radio>
           </RadioGroup>
@@ -171,7 +174,7 @@ const RegisterForm = () => {
         Already have an account?{" "}
 
         <Link
-          href="/login"
+          href={`/login?redirect=${redirectTo}`}
           className="text-purple-400 hover:text-purple-300 transition-colors"
         >
           Sign In

@@ -8,8 +8,16 @@ import { Button } from "@heroui/react";
 import { HiOutlineMail, HiOutlineLockClosed } from "react-icons/hi";
 import { FaGoogle, FaGithub } from "react-icons/fa";
 import { authClient } from "@/lib/auth-client";
+import { useRouter, useSearchParams } from "next/navigation";
 
 const LoginPage = () => {
+  const router = useRouter()
+  const params = useSearchParams()
+  const redirectTo = params.get('redirect') || '/'
+  console.log(redirectTo)
+
+
+
   const onSubmit = async (e) => {
     e.preventDefault();
 
@@ -32,7 +40,7 @@ const LoginPage = () => {
       /**
        * A URL to redirect to after the user verifies their email (optional)
        */
-      callbackURL: "/",
+      // callbackURL: "/",
       /**
        * remember the user session after the browser is closed. 
        * @default true
@@ -43,6 +51,9 @@ const LoginPage = () => {
     })
     console.log(error,'errror')
     console.log(data,'data')
+    if(data){
+      router.push(redirectTo)
+    }
   };
   return (
     <section className="relative min-h-screen overflow-hidden bg-black text-white mt-10">
@@ -138,7 +149,7 @@ const LoginPage = () => {
           {/* Register */}
           <p className="text-center text-gray-400 text-sm mt-6">
             Don&apos;t have an account?{" "}
-            <Link href="/register" className="text-violet-400">
+            <Link href={`/register?redirect=${redirectTo}`} className="text-violet-400">
               Sign Up
             </Link>
           </p>
