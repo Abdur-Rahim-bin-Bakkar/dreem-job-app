@@ -50,3 +50,14 @@ export const jobDetails = async (id) => {
   const job = await res.json()
   return job
 }
+
+
+// get applications by user id:
+export const getApplications = async (userid) => {
+  const response = await fetch(
+    `${process.env.NEXT_PUBLIC_SERVER}/application?applicantId=${userid}`
+  );
+
+  const data = await response.json();
+  return data;
+}

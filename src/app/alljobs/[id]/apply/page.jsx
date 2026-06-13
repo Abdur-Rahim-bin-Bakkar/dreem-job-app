@@ -1,4 +1,4 @@
-import { jobDetails } from '@/lib/api/get';
+import { getApplications, jobDetails } from '@/lib/api/get';
 import { getServerSession } from '@/lib/session/server';
 import Link from 'next/link';
 import { redirect } from 'next/navigation';
@@ -8,7 +8,7 @@ import JobApplicationForm from './ApplicatioinForm';
 const ApplyPage = async ({ params }) => {
     const { id } = await params;
     const session = await getServerSession();
-    // console.log(session?.user)
+    console.log(session?.user?.id,'etai')
 
     if (!session) {
         redirect(`/login?redirect=/alljobs/${id}/apply`)
@@ -79,9 +79,11 @@ const ApplyPage = async ({ params }) => {
 
     const job = await jobDetails(id)
     // console.log(job)
+    const applications = await getApplications(session?.user?.id)
+    console.log(applications)
     return (
-        <div className='mt-20'>
-            <h1>this is apply page</h1>
+        <div className='mt-25'>
+            <h1 className='text-center font-bold text-3xl'>Apply on {applications.length} of 5</h1>
             <JobApplicationForm  user={session?.user} job={job}/>
         </div>
     );

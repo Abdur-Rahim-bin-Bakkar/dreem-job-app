@@ -11,11 +11,11 @@ import {
 } from "react-icons/fa";
 
 export default function JobApplicationForm({ job, user }) {
-    const {name, id, email} = user;
-    console.log(name)
-    console.log(id)
-    console.log(email)
-    
+    const { name, id, email } = user;
+    // console.log(name)
+    // console.log(id)
+    // console.log(email)
+
     const [loading, setLoading] = useState(false);
 
     const handleSubmit = async (e) => {
@@ -33,16 +33,19 @@ export default function JobApplicationForm({ job, user }) {
         };
         const newApplication = {
             ...applicationData,
-            applicantName:name,
-            applicantEmail:email,
-            applicantId:id,
-            jobId:job?._id
+            applicantName: name,
+            applicantEmail: email,
+            applicantId: id,
+            jobId: job?._id
 
         }
 
         console.log(newApplication);
         const result = await createApplication(newApplication)
-        console.log(result,'post resulet')
+        console.log(result, 'post resulet')
+        if (result?.insertedId) {
+            alert("Application submitted successfully");
+        }
 
         setLoading(true);
 
@@ -60,7 +63,7 @@ export default function JobApplicationForm({ job, user }) {
                 {/* Header */}
                 <div className="border-b border-zinc-800 p-8">
                     <h1 className="text-3xl font-bold text-white">
-                        Apply for this Position
+                        Apply for {job?.jobTitle} Position
                     </h1>
 
                     <p className="text-zinc-400 mt-2">
