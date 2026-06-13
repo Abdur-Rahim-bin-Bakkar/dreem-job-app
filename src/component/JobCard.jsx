@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import {
     FaArrowRight,
     FaMapMarkerAlt,
@@ -6,6 +7,7 @@ import {
 } from "react-icons/fa";
 
 export default function JobCard({ job }) {
+    console.log(job?._id, 'this is id')
     return (
         <article className="group bg-[#3a393970] border border-violet-900/50 rounded-3xl p-6 transition-all duration-300 hover:border-violet-600 hover:-translate-y-1 shadow">
 
@@ -71,11 +73,13 @@ export default function JobCard({ job }) {
                         {job.deadline}
                     </p>
                 </div>
+                <Link href={`/alljobs/${job?._id}`}>
 
-                <button className="flex items-center gap-2 text-white font-medium group-hover:gap-4 transition-all">
-                    Apply Now
-                    <FaArrowRight />
-                </button>
+                    <button className="flex items-center gap-2 text-white font-medium group-hover:gap-4 transition-all">
+                        Apply Now
+                        <FaArrowRight />
+                    </button>
+                </Link>
             </div>
         </article>
     );

@@ -19,12 +19,14 @@
 // }
 import JobCard from "@/component/JobCard";
 import JobFilters from "@/component/JobFilters";
-import { getAllJobs } from "@/lib/api/get";
+import { getAllJobs, jobDetails } from "@/lib/api/get";
 
 export default async function AllJobsPage({searchParams}) {
     const params = await searchParams
     const jobs = await getAllJobs(params);
-    console.log(params,'this is search params')
+    // console.log(params,'this is search params')
+    // const data = jobDetails(params)
+    // console.log(jobs?._id,'this is id')
 
     return (
         <section className="min-h-screen bg-black p-6 mt-20">

@@ -17,7 +17,7 @@ const Navbar = () => {
     error, //error object
     refetch //refetch the session
   } = authClient.useSession()
-  // console.log(session)
+  // console.log(session,'form navbar')
   const handleSignout = async () => {
     await authClient.signOut();
   }
@@ -49,11 +49,11 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className="absolute top-0 left-0 w-full z-50 ">
+    <nav className="absolute top-0 left-0 w-full z-50 items-center">
 
       <div className="max-w-7xl mx-auto px-4 lg:px-8">
 
-        <div className="flex items-center justify-between py-6">
+        <div className="flex items-center justify-between py-6 ">
 
           {/* Logo */}
           <Link
