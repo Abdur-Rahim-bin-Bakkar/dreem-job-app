@@ -125,7 +125,7 @@ export default function PricingCard() {
       : pricingPlans.recruiters;
 
   return (
-    <div className="max-w-11/12 mx-auto px-4 py-20">
+    <div className="max-w-11/12  mx-auto px-4 py-20">
 
       {/* Header */}
       <div className="text-center mb-16">
@@ -135,7 +135,7 @@ export default function PricingCard() {
 
         <p className="text-zinc-400 mt-4 max-w-2xl mx-auto">
           Choose the perfect plan whether you re searching for your next
-          opportunity or hiring top talent.
+          opportunity or hiring top  talent.
         </p>
       </div>
 
@@ -152,7 +152,7 @@ export default function PricingCard() {
             }`}
           >
             <FaUserTie />
-            Job Seekers
+            Job seekers
           </button>
 
           <button
